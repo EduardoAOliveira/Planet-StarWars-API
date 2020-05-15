@@ -11,23 +11,23 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.RequestParam;
-import planetas.starwars.starwars.repository.PlanetaRepository;
+import planetas.starwars.starwars.repository.PlanetRepository;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
-import planetas.starwars.starwars.model.Planeta;
+import planetas.starwars.starwars.model.Planet;
 
 @RequestMapping("/api")
 @RestController
-public class PlanetaController {
+public class PlanetController {
 
     @Autowired
-    PlanetaRepository planetaRepository;
+    PlanetRepository planetRepository;
   
-    @GetMapping("/planetas/All")
-    public ResponseEntity<List<Planeta>> getAllPlanetas(@RequestParam(required = false) String name) {
+    @GetMapping("/planetas/all")
+    public ResponseEntity<List<Planet>> getAllPlanetas(@RequestParam(required = false) String name) {
       try {
-        List<Planeta> _planetas = new ArrayList<Planeta>();      
-        planetaRepository.findAll().forEach(_planetas::add);
+        List<Planet> _planetas = new ArrayList<Planet>();      
+        planetRepository.findAll().forEach(_planetas::add);
 
         if (_planetas.isEmpty()) {
           return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -40,8 +40,8 @@ public class PlanetaController {
     }
   
     @GetMapping("/planeta/{id}")
-    public ResponseEntity<Planeta> getPlanetasById(@PathVariable("id") String id) {
-      Optional<Planeta> _planeta = planetaRepository.findById(id);
+    public ResponseEntity<Planet> getPlanetasById(@PathVariable("id") String id) {
+      Optional<Planet> _planeta = planetRepository.findById(id);
 
       if (_planeta.isPresent()) {
         return new ResponseEntity<>(_planeta.get(), HttpStatus.OK);
@@ -51,8 +51,8 @@ public class PlanetaController {
     }
 
     @GetMapping("/planetas/{name}")
-    public ResponseEntity<Planeta> getPlanetasByName(@PathVariable("name") String name) {
-      Optional<Planeta> _planeta = planetaRepository.findByName(name);
+    public ResponseEntity<Planet> getPlanetasByName(@PathVariable("name") String name) {
+      Optional<Planet> _planeta = planetRepository.findByName(name);
 
       if (_planeta.isPresent()) {
         return new ResponseEntity<>(_planeta.get(), HttpStatus.OK);
@@ -62,9 +62,9 @@ public class PlanetaController {
     }
   
     @PostMapping("/planetas/create")
-    public ResponseEntity<Planeta> createPlaneta(@RequestBody Planeta planeta) {
+    public ResponseEntity<Planet> createPlaneta(@RequestBody Planet planeta) {
       try {
-        Planeta _planeta = planetaRepository.save(new Planeta(planeta.getName(), planeta.getClimate(), planeta.getGround()));
+        Planet _planeta = planetRepository.save(new Planet(planeta.getName(), planeta.getClimate(), planeta.getGround()));
         return new ResponseEntity<>(_planeta, HttpStatus.CREATED);
       } catch (Exception e) {
         return new ResponseEntity<>(null, HttpStatus.EXPECTATION_FAILED);
@@ -74,7 +74,7 @@ public class PlanetaController {
     @DeleteMapping("/planetas/delete/{id}")
     public ResponseEntity<HttpStatus> deletePlaneta(@PathVariable("id") String id) {
       try {
-        planetaRepository.deleteById(id);
+        planetRepository.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);
       } catch (Exception e) {
         return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);

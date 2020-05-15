@@ -4,7 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "planetas_starwars")
-public class Planeta {
+public class Planet {
     @Id
     private String id;
   
@@ -12,11 +12,11 @@ public class Planeta {
     private String climate;
     private String ground;
   
-    public Planeta() {  
+    public Planet() {  
   
     }
   
-    public Planeta(String name, String climate, String ground) {
+    public Planet(String name, String climate, String ground) {
       this.name = name;
       this.climate = climate;
       this.ground = ground;
