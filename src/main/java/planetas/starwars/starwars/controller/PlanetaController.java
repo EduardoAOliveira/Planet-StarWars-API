@@ -5,7 +5,6 @@ import java.util.Optional;
 import java.util.ArrayList;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import planetas.starwars.starwars.model.Planeta;
 
-@CrossOrigin(origins = "http://localhost:8081")
 @RequestMapping("/api")
 @RestController
 public class PlanetaController {
