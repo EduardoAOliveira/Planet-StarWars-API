@@ -1,15 +1,15 @@
-package planetas.starwars.starwars.servicetest;
+package planets.starwars.servicetest;
 
 import static org.mockito.Mockito.when;
-import planetas.starwars.starwars.service.PlanetService;
-import planetas.starwars.starwars.repository.PlanetRepository;
+import planets.starwars.service.PlanetService;
+import planets.starwars.repository.PlanetRepository;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.springframework.boot.test.context.SpringBootTest;
-import planetas.starwars.starwars.domain.Planet;
+import planets.starwars.domain.Planet;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Optional;

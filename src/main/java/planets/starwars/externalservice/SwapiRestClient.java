@@ -1,7 +1,7 @@
-package planetas.starwars.starwars.externalservice;
+package planets.starwars.externalservice;
 
 import java.util.Arrays;
-import planetas.starwars.starwars.externalservice.response.*;
+import planets.starwars.externalservice.response.*;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;

@@ -1,13 +1,13 @@
-package planetas.starwars.starwars.integrationtest;
+package planets.starwars.integrationtest;
 
-import planetas.starwars.starwars.repository.PlanetRepository;
+import planets.starwars.repository.PlanetRepository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import planetas.starwars.starwars.domain.Planet;
+import planets.starwars.domain.Planet;
 import java.util.List;
 import java.util.Optional;
 

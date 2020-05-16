@@ -1,4 +1,4 @@
-package planetas.starwars.starwars.externalservice.response;
+package planets.starwars.externalservice.response;
 
 import java.util.List;
 import lombok.Data;

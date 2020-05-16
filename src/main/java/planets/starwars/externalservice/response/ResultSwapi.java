@@ -1,4 +1,4 @@
-package planetas.starwars.starwars.externalservice.response;
+package planets.starwars.externalservice.response;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

@@ -1,4 +1,4 @@
-package planetas.starwars.starwars.domain;
+package planets.starwars.domain;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 

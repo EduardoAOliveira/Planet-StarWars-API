@@ -1,12 +1,12 @@
-package planetas.starwars.starwars.externalservicetest;
+package planets.starwars.externalservicetest;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.springframework.boot.test.context.SpringBootTest;
-import planetas.starwars.starwars.externalservice.*;
-import planetas.starwars.starwars.externalservice.response.*;
+import planets.starwars.externalservice.*;
+import planets.starwars.externalservice.response.*;
 
 
 @SpringBootTest

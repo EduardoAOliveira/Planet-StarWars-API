@@ -1,12 +1,12 @@
-package planetas.starwars.starwars.service;
+package planets.starwars.service;
 
 import java.util.Optional;
-import planetas.starwars.starwars.externalservice.*;
-import planetas.starwars.starwars.domain.Planet;
-import planetas.starwars.starwars.repository.PlanetRepository;
+import planets.starwars.externalservice.*;
+import planets.starwars.domain.Planet;
+import planets.starwars.repository.PlanetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import planetas.starwars.starwars.externalservice.response.*;
+import planets.starwars.externalservice.response.*;
 import java.util.List;
 
 @Service
