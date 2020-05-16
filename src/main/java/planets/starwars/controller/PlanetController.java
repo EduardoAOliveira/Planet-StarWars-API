@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -53,16 +52,18 @@ public class PlanetController {
   
     @GetMapping("/planets/{id}")
     public ResponseEntity<Planet> getPlanetById(@PathVariable("id") String id) {
-      Optional<Planet> _planeta = _planetService.getPlanetById(id);
-
-      if (_planeta.isPresent()) {
-        return new ResponseEntity<>(_planeta.get(), HttpStatus.OK);
-      } else {
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+      try{
+        Optional<Planet> _planet = _planetService.getPlanetById(id);
+        if (_planet.isPresent()) {
+          return new ResponseEntity<>(_planet.get(), HttpStatus.OK);
+        } else {
+          return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+      }catch(Exception e){
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
       }
     }
-  
-    @Async
+
     @PostMapping("/planets")
     public ResponseEntity<Planet> createPlanet(@RequestBody Planet planeta) {
       try {

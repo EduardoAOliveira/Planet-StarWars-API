@@ -21,12 +21,12 @@ public class PlanetService {
         
     }
 
-    public List<Planet> getAllPlanets(){      
+    public List<Planet> getAllPlanets(){    
         return _planetRepository.findAll();
     }
 
     public Optional<Planet> getPlanetById(String id){
-        return _planetRepository.findById(id);
+        return _planetRepository.findById(id);       
     }
 
     public Optional<Planet> getPlanetByName(String name){
