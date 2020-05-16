@@ -35,6 +35,10 @@ public class PlanetService {
 
     public Planet createPlanet(Planet planet){        
         int appearances = searchAppearanceByName(planet.getName());
+        Optional<Planet> resultPlanet = _planetRepository.findByName(planet.getName());
+        if (resultPlanet.isPresent()) {
+           return resultPlanet.get();
+        }
         return _planetRepository.save(new Planet(planet.getName(), planet.getClimate(), planet.getGround(), appearances));
     }
 
