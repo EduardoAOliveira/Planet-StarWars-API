@@ -1,5 +1,6 @@
 package planetas.starwars.starwars.servicetest;
 
+import static org.mockito.Mockito.when;
 import planetas.starwars.starwars.service.PlanetService;
 import planetas.starwars.starwars.repository.PlanetRepository;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -14,7 +15,6 @@ import java.util.ArrayList;
 import java.util.Optional;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import static org.mockito.Mockito.when;
 
 @SpringBootTest
 public class PlanetServiceTest {
@@ -34,14 +34,13 @@ public class PlanetServiceTest {
     public void given_createplanets_should_return_ok() {
 
         Planet planetMock = new Planet("Alderaan", "temperate", "terreno 4", 2);
-
+        Optional<Planet> planetOptional = Optional.of(planetMock);
+        when( _planetrepository.findByName(planetMock.getName())).thenReturn(planetOptional);
         when( _planetrepository.save(planetMock)).thenReturn(planetMock);
 
         Planet resultPlanet = _planetService.createPlanet(planetMock);
 
-        assertEquals(planetMock.getName(), resultPlanet.getName());    
-        assertEquals(planetMock.getClimate(), resultPlanet.getClimate());       
-        assertEquals(planetMock.getGround(), resultPlanet.getGround());   
+        assertEquals(planetMock.getName(), resultPlanet.getName());
      }
 
      @Test
