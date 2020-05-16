@@ -47,7 +47,7 @@ public class PlanetService {
         }
     }
 
-    public int searchAppearanceByName(String name){
+    private int searchAppearanceByName(String name){
         PlanetSwapi resultSwapi = _swapiRestClient.returnPlanets(name).getPlanetSwapi();
         
         if(resultSwapi == null)
