@@ -1,5 +1,4 @@
-package planetas.starwars.starwars.model;
-
+package planetas.starwars.starwars.domain;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,41 +11,41 @@ public class Planet {
     private String climate;
     private String ground;
   
-    public Planet() {  
-  
-    }
-  
-    public Planet(String name, String climate, String ground) {
+    private int appearances;
+
+    public Planet(String name, String climate, String ground, int appearances) {
       this.name = name;
       this.climate = climate;
       this.ground = ground;
+      this.appearances = appearances;
+      validate();
     }
   
-    public String getId() {
-      return id;
+    private void validate(){
+      if(name.isEmpty()){
+        throw new Error("Nome inválido.");
+      }
+      if(climate.isEmpty()){
+        throw new Error("Clima inválido.");
+      }
+      if(ground.isEmpty()){
+        throw new Error("Terreno inválido.");
+      }
     }
   
     public String getName() {
       return name;
     }
-  
-    public void setName(String name) {
-      this.name = name;
-    }
-  
+    
     public String getClimate() {
       return climate;
     }
   
-    public void setClimate(String climate) {
-      this.climate = climate;
-    }
-
     public String getGround() {
       return ground;
     }
-  
-    public void setGround(String ground) {
-      this.ground = ground;
+
+    public int getAppearance() {
+      return appearances;
     }
   }
