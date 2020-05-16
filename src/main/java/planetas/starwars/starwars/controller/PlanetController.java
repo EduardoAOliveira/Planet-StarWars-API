@@ -71,7 +71,6 @@ public class PlanetController {
       }
     }
 
-    @Async
     @DeleteMapping("/planetas/delete/{id}")
     public ResponseEntity<HttpStatus> deletePlanet(@PathVariable("id") String id) {
       try {
